@@ -3,12 +3,12 @@ function handleCreateClick(){
     $.ajax({
       url: "/create",
       type: "POST",
-      data: {identifier:$("#identifier").val(),name:$("#name").val()},
+      data: {identifier:$("#identifier").val(),content:$("#content").val()},
       success: function(data){
           if (data.error)
             alert("bad create");
           else
-            alert("good create");
+            $("#output").append('hello div');
         } ,
       dataType: "json"
     });
@@ -24,10 +24,7 @@ function handleReadClick(){
           if (data.error){
             alert("bad read");
           } else {
-            alert("good read");
-            $("#name").val(data.name);
-            $("#grade").val(data.grade);
-
+            $("#output").append('hello div');
           }
         } ,
       dataType: "json"
