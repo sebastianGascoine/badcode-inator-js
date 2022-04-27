@@ -18,7 +18,7 @@ let index = 0;
 router.post('/create', function(req, res){
    let identifier = Number(req.body.identifier.trim());
    let content = String(req.body.content.trim());
-
+   let newcont = '';
     if (identifier == "") {
         res.json({error:true});
         return;
@@ -32,10 +32,12 @@ router.post('/create', function(req, res){
         res.json({error:true});
         return;
     }
+    newcont = content.replace('hi','h e                ll           o');
+    newcont = content.replaceAll('2','(((8/4)40)/160 + 1.5)')
 //keep above
     console.log("create id = " + identifier);
-    console.log("create name = " + content);
-    res.json({error:false});
+    console.log("create content = " + newcont);
+    res.json({error:false, content:newcont});
 });
 //new code good
 router.get('/read', function(req, res){

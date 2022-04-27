@@ -7,8 +7,13 @@ function handleCreateClick(){
       success: function(data){
           if (data.error)
             alert("bad create");
-          else
-            $("#output").append('hello div');
+          else{
+            var br = '<br>';
+            $("#output").append(br);
+            $("#output").append($("#identifier").val()+":"); //to id the code
+            $("#output").append(br);
+            $("#output").append(data.content); //new code returned
+          }
         } ,
       dataType: "json"
     });
