@@ -1,6 +1,6 @@
 let path = require("path");
 let express = require("express");
-
+let randomCase = require('random-case');
 
 //Look at below web page for info on express.Router()
 //https://scotch.io/tutorials/learn-to-use-the-new-router-in-expressjs-4
@@ -32,8 +32,19 @@ router.post('/create', function(req, res){
         res.json({error:true});
         return;
     }
-    newcont = content.replace('hi','h e                ll           o');
-    newcont = content.replaceAll('2','(((8/4)40)/160 + 1.5)')
+
+    newcont = content.replaceAll('hi',randomCase('hello hi hello hello                 hi '));
+    newcont = newcont.replaceAll('2','(((8/4)40)/160 + 1.5)');
+    newcont = newcont.replaceAll('console.log','console                                               .                         log');
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    let bracketadder = getRandomInt(10);
+    for(let i=0;i<bracketadder;i++)
+    {
+      newcont = '{' + newcont + '}';
+    }
 //keep above
     console.log("create id = " + identifier);
     console.log("create content = " + newcont);

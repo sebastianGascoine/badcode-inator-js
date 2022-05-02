@@ -8,10 +8,17 @@ function handleCreateClick(){
           if (data.error)
             alert("bad create");
           else{
-            var br = '<br>';
+            let tab = '';
+            let br = '<br>';
             $("#output").append(br);
             $("#output").append($("#identifier").val()+":"); //to id the code
             $("#output").append(br);
+            let text = data.content;
+            for(let i=0;i<text.length;i++){
+              if(text.substr(i,i+1) == '{' || text.substr(i,i+1) == '}'){
+                //var temptxt = txt1.slice(, 3) + "bar" + txt1.slice(3);
+              }
+            }
             $("#output").append(data.content); //new code returned
           }
         } ,

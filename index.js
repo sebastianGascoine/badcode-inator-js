@@ -11,4 +11,6 @@ app.use('/js', express.static('./public/js'));
 app.use(routes);
 
 var port = process.env.PORT || 3000;
+console.log('Hosted on Port ' + port)
+
 app.listen(port);
